@@ -1,0 +1,212 @@
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="content-page">
+  <!-- Start content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="page-title-box">
+        <div class="row align-items-center">
+          <div class="col-sm-6">
+            <h2 class="page-title">Add a Sales</h2>
+          </div>
+          <div class="col-sm-6">
+            <!-- Button trigger modal -->
+
+            <ol class="breadcrumb float-right">
+              <li class="breadcrumb-item"><a href="#">EMBROIDERY</a></li>
+              <li class="breadcrumb-item active">Sales</li>
+            </ol>
+          </div>
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end page-title -->
+
+      <!-- START ROW -->
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card m-b-30">
+            <div class="card-body">
+              <div class="row">
+                <h1 class="col-10">Party Account</h1>
+                <button
+                  type="button"
+                  class="btn btn-primary float-right col-1"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                >
+                  Add Party
+                </button>
+              </div>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Account Info
+                      </h5>
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <!-- <span aria-hidden="true">&times;</span> -->
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="mb-3">
+                          <label for="exampleInputEmail1" class="form-label"
+                            >Party Name:</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="pname"
+                            name="pname"
+                            placeholder="Enter Party Name"
+                            [(ngModel)]="pname"
+                          />
+                        </div>
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label"
+                            >GST No:</label
+                          >
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="gstno"
+                            placeholder="Enter GST No"
+                            [(ngModel)]="gstno"
+                            name="gstno"
+                          />
+                        </div>
+                        <!-- address -->
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label"
+                            >Address:</label
+                          >
+                          <div class="mb-3">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="aline1"
+                              placeholder="Address Line 1"
+                              [(ngModel)]="aline1"
+                              name="aline1"
+                            />
+                          </div>
+                          <div class="mb-3">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="aline2"
+                              placeholder="Address Line 2"
+                              [(ngModel)]="aline2"
+                              name="aline2"
+                            />
+                          </div>
+                          <div class="mb-3">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="city"
+                              placeholder="City"
+                              [(ngModel)]="city"
+                              name="city"
+                            />
+                          </div>
+                          
+                          <div class="mb-3">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="pincode"
+                              placeholder="Pincode"
+                              [(ngModel)]="pincode"
+                              name="pincode"
+                            />
+                          </div>
+                          <div class="mb-3">
+                            <input
+                              type="text"
+                              class="form-control"
+                              id="state"
+                              placeholder="State"
+                              [(ngModel)]="state"
+                              name="state"
+                            />
+                          </div>
+                        </div>
+                        <!-- type -->
+                        <div class="mb-3">
+                          <label for="exampleInputPassword1" class="form-label"
+                            >type:</label
+                          >
+                          <div class="mb-3">
+                            <select
+                              class="form-select form-select-sm form-control"
+                              aria-label="select party type"
+                              [value]="type"
+                              [(ngModel)]="type"
+                            >
+                              <option value="1" selected>Sales</option>
+                              <option value="2">Purchase</option>
+                              <option value="3">Others</option>
+                            </select>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-dismiss="modal"
+                      >
+                        Close
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-primary"
+                        (click)="addItems()"
+                        data-dismiss="modal"
+                      >
+                        Save changes
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal End -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- END ROW -->
+    </div>
+    <!-- container-fluid -->
+  </div>
+  <!-- content -->
+
+  <footer class="footer">
+    ©2021 Jassa
+    <span class="d-none d-sm-inline-block">
+      - Love <i class="mdi mdi-heart text-danger"></i> by Therichpost.com</span
+    >.
+  </footer>
+</div>
+<!-- ============================================================== -->
+<!-- End Right content here -->
+<!-- ============================================================== -->

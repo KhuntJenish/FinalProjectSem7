@@ -1,0 +1,349 @@
+<!-- ============================================================== -->
+<!-- Start right Content here -->
+<!-- ============================================================== -->
+<div class="content-page">
+  <!-- Start content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="page-title-box">
+        <div class="row align-items-center">
+          <div class="col-sm-6">
+            <h2 class="page-title">Add a Sales</h2>
+          </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-right">
+              <li class="breadcrumb-item"><a href="#">EMBROIDERY</a></li>
+              <li class="breadcrumb-item active">Sales</li>
+            </ol>
+          </div>
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end page-title -->
+
+      <!-- START ROW -->
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card m-b-30">
+            <div class="card-body">
+              <!-- pauchase form -->
+              <form>
+                <!-- ROW_1 -->
+                <div class="row mb-3">
+                  <!-- party_name -->
+                  <div class="col-8">
+                    <label for="title" class="form-lable">Party name:</label>
+                    <!-- <input type="text" name="name" class="form-control" id="" /> -->
+                    <select
+                      class="form-select form-select-sm form-control"
+                      aria-label=".form-select-sm example"
+                    >
+                      <option selected>Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div>
+                  <!-- bill_no -->
+                  <div class="col-4">
+                    <label for="title" class="form-lable">Bill No:</label>
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+                </div>
+                <!-- ROW_2 -->
+                <div class="row mb-3">
+                  <!-- gst_IN -->
+                  <div class="col-8">
+                    <label for="title" class="form-lable">GST IN:</label>
+                    <!-- <input type="text" name="name" class="form-control" id="" /> -->
+
+                    <input
+                      type="email"
+                      class="form-control"
+                      id="exampleInputEmail1"
+                      aria-describedby="emailHelp"
+                    />
+                  </div>
+                  <!-- date -->
+                  <div class="col-4">
+                    <label for="title" class="form-lable">Date:</label>
+                    <input
+                      type="date"
+                      class="disc form-control"
+                      id="date2"
+                      name="date2"
+                      value="{{ date }}"
+                    />
+                  </div>
+                </div>
+                <h4 class="mb-3 mt-1">Add Items</h4>
+                <!-- ROW_3 -->
+                <div class="row mb-3">
+                  <!-- no -->
+                  <div class="col-1">
+                    <label for="title" class="form-lable">No.</label>
+                    <input
+                      type="number"
+                      maxlength="2"
+                      class="form-control"
+                      id="no"
+                      [(ngModel)]="number"
+                      name="no"
+                      value="{{ number + 1 }}"
+                    />
+                  </div>
+                  <!-- description -->
+                  <div class="col-3">
+                    <label for="title" class="form-lable">description:</label>
+                    <input
+                      maxlength="50"
+                      type="text"
+                      class="form-control"
+                      id="description"
+                      name="description"
+                      [(ngModel)]="description"
+                    />
+                  </div>
+                  <!-- Design no. -->
+                  <div class="col-2">
+                    <label for="title" class="form-lable">Design no.:</label>
+                    <input
+                      maxlength="25"
+                      type="text"
+                      class="disc form-control"
+                      id="design"
+                      name="design"
+                      [(ngModel)]="designNo"
+                    />
+                  </div>
+                  <!-- Work -->
+                  <div class="col-1">
+                    <label for="title" class="form-lable">Work:</label>
+                    <input
+                      maxlength="3"
+                      type="number"
+                      class="form-control"
+                      id="work"
+                      name="work"
+                      [(ngModel)]="work"
+                      (focus)="qtyChange()"
+                    />
+                  </div>
+                  <!-- Plain -->
+                  <div class="col-1">
+                    <label for="title" class="form-lable">Plain:</label>
+                    <input
+                      maxlength="3"
+                      type="number"
+                      class="form-control"
+                      id="plain"
+                      name="plain"
+                      [(ngModel)]="plain"
+                      (focus)="qtyChange()"
+                    />
+                  </div>
+                  <!-- Qty -->
+                  <div class="col-1">
+                    <label for="title" class="form-lable">Qty:</label>
+                    <input
+                      maxlength="3"
+                      type="number"
+                      class="form-control"
+                      id="qty"
+                      name="qty"
+                      [(ngModel)]="qty"
+                      (focus)="qtyChange()"
+                    />
+                  </div>
+                  <!-- Rate -->
+                  <div class="col-1">
+                    <label for="title" class="form-lable">Rate:</label>
+                    <input
+                      maxlength="3"
+                      type="number"
+                      class="form-control"
+                      id="rate"
+                      name="rate"
+                      [(ngModel)]="rate"
+                      (focus)="amountchnage()"
+                    />
+                  </div>
+                  <!-- Amount -->
+                  <div class="col-2">
+                    <label for="title" class="form-lable">Amount:</label>
+                    <input
+                      type="number"
+                      class="form-control"
+                      id="amount"
+                      name="amount"
+                      [(ngModel)]="amount"
+                      (focus)="amountchnage()"
+                    />
+                  </div>
+                </div>
+
+                <!-- ROW_4 -->
+                <div class="row mb-3">
+                  <!-- add item button -->
+                  <div class="col-6">
+                    <input
+                      type="submit"
+                      value="Add Items"
+                      class="btn btn-primary btn-lg btn-block"
+                      (click)="addItems()"
+                    />
+                  </div>
+                  <!-- clear button -->
+                  <div class="col-6">
+                    <input
+                      type="submit"
+                      value="clear"
+                      class="btn btn-primary btn-lg btn-block"
+                      (click)="removeItem()"
+                    />
+                  </div>
+                </div>
+              </form>
+              <!-- ROW_5 -->
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th scope="col">No.</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Design no.</th>
+                    <th scope="col">work</th>
+                    <th scope="col">plain</th>
+                    <th scope="col">Qty</th>
+                    <th scope="col">Rate</th>
+                    <th scope="col">Amount</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of itemData">
+                    <th scope="row">{{ item.number }}</th>
+                    <td>{{ item.description }}</td>
+                    <td>{{ item.designNo }}</td>
+                    <td>{{ item.plain }}</td>
+                    <td>{{ item.work }}</td>
+                    <td>{{ item.qty }}</td>
+                    <td>{{ item.rate }}</td>
+                    <td>{{ item.amount }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <!-- ROW_6 -->
+              <div class="row mb-3">
+                <!--total row amount -->
+                <div class="col-4">
+                  <label for="title" class="form-lable">Amount:</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="totalrowamount"
+                    name="totalrowamount"
+                    [(ngModel)]="totalRawAmount"
+                    value="{{ totalRawAmount }}"
+                    (focus)="totalRawAmountfunc()"
+                  />
+                </div>
+                <!-- Discount -->
+                <div class="col-4">
+                  <label for="title" class="form-lable">Discount: ({{discountPercentage}})%</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="discount"
+                    name="discount"
+                    [(ngModel)]="discount"
+                    value="{{ discount }}"
+                  />
+                </div>
+                <!-- Gross Amount -->
+                <div class="col-4">
+                  <label for="title" class="form-lable">Gross Amount:</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="grossamount"
+                    name="grossamount"
+                    [(ngModel)]="grossAmount"
+                    value="{{ grossAmount }}"
+                    (focus)="discountChnage()"
+                  />
+                </div>
+              </div>
+
+              <!-- ROW_7 -->
+              <div class="row mb-3">
+                <!--sgst -->
+                <div class="col-3">
+                  <label for="title" class="form-lable">SGST:</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="sgst"
+                    name="sgst"
+                    value="{{ sgst }}"
+                  />
+                </div>
+                <!-- cgst -->
+                <div class="col-3">
+                  <label for="title" class="form-lable">CGST:</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="cgst"
+                    name="discount"
+                    value="{{ cgst }}"
+                  />
+                </div>
+                <!-- igst -->
+                <div class="col-2">
+                  <label for="title" class="form-lable">IGST:</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="grossamount"
+                    name="grossamount"
+                    value="{{ igst }}"
+                  />
+                </div>
+                <!-- total Amount -->
+                <div class="col-4">
+                  <label for="title" class="form-lable">Total Amount:</label>
+                  <input
+                    type="number"
+                    class="form-control"
+                    id="totalamount"
+                    name="totalamount"
+                    value="{{ totalAmount }}"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- END ROW -->
+    </div>
+    <!-- container-fluid -->
+  </div>
+  <!-- content -->
+
+  <footer class="footer">
+    ©2021 Jassa
+    <span class="d-none d-sm-inline-block">
+      - Love <i class="mdi mdi-heart text-danger"></i> by Therichpost.com</span
+    >.
+  </footer>
+</div>
+<!-- ============================================================== -->
+<!-- End Right content here -->
+<!-- ============================================================== -->
