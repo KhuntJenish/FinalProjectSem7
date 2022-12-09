@@ -30,6 +30,7 @@
             <div class="card-body">
               <div class="row">
                 <h1 class="col-10">Party Account</h1>
+                <!-- party add button -->
                 <button
                   type="button"
                   class="btn btn-primary float-right col-1"
@@ -54,6 +55,7 @@
                       <h5 class="modal-title" id="exampleModalLabel">
                         Account Info
                       </h5>
+
                       <button
                         type="button"
                         class="close"
@@ -63,132 +65,187 @@
                         <!-- <span aria-hidden="true">&times;</span> -->
                       </button>
                     </div>
-                    <div class="modal-body">
-                      <form>
-                        <div class="mb-3">
-                          <label for="exampleInputEmail1" class="form-label"
-                            >Party Name:</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="pname"
-                            name="pname"
-                            placeholder="Enter Party Name"
-                            [(ngModel)]="pname"
-                          />
-                        </div>
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label"
-                            >GST No:</label
-                          >
-                          <input
-                            type="text"
-                            class="form-control"
-                            id="gstno"
-                            placeholder="Enter GST No"
-                            [(ngModel)]="gstno"
-                            name="gstno"
-                          />
-                        </div>
-                        <!-- address -->
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label"
-                            >Address:</label
-                          >
+
+                    <div>
+                      <div class="modal-body">
+                        <form>
+                          <!-- party name -->
                           <div class="mb-3">
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="aline1"
-                              placeholder="Address Line 1"
-                              [(ngModel)]="aline1"
-                              name="aline1"
-                            />
-                          </div>
-                          <div class="mb-3">
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="aline2"
-                              placeholder="Address Line 2"
-                              [(ngModel)]="aline2"
-                              name="aline2"
-                            />
-                          </div>
-                          <div class="mb-3">
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="city"
-                              placeholder="City"
-                              [(ngModel)]="city"
-                              name="city"
-                            />
-                          </div>
-                          
-                          <div class="mb-3">
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="pincode"
-                              placeholder="Pincode"
-                              [(ngModel)]="pincode"
-                              name="pincode"
-                            />
-                          </div>
-                          <div class="mb-3">
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="state"
-                              placeholder="State"
-                              [(ngModel)]="state"
-                              name="state"
-                            />
-                          </div>
-                        </div>
-                        <!-- type -->
-                        <div class="mb-3">
-                          <label for="exampleInputPassword1" class="form-label"
-                            >type:</label
-                          >
-                          <div class="mb-3">
-                            <select
-                              class="form-select form-select-sm form-control"
-                              aria-label="select party type"
-                              [value]="type"
-                              [(ngModel)]="type"
+                            <label for="exampleInputEmail1" class="form-label"
+                              >Party Name:</label
                             >
-                              <option value="1" selected>Sales</option>
-                              <option value="2">Purchase</option>
-                              <option value="3">Others</option>
-                            </select>
+                            <input
+                              maxlength="35"
+                              type="text"
+                              class="form-control"
+                              id="pname"
+                              name="pname"
+                              placeholder="Enter Party Name"
+                              [(ngModel)]="pname"
+                            />
                           </div>
-                        </div>
-                      </form>
-                    </div>
-                    <div class="modal-footer">
-                      <button
-                        type="button"
-                        class="btn btn-secondary"
-                        data-dismiss="modal"
-                      >
-                        Close
-                      </button>
-                      <button
-                        type="button"
-                        class="btn btn-primary"
-                        (click)="addItems()"
-                        data-dismiss="modal"
-                      >
-                        Save changes
-                      </button>
+                          <!-- gst no -->
+                          <div class="mb-3">
+                            <label
+                              for="exampleInputPassword1"
+                              class="form-label"
+                              >GST No:</label
+                            >
+                            <input
+                              oninput="this.value = this.value.toUpperCase()"
+                              maxlength="15"
+                              type="text"
+                              class="form-control"
+                              id="gstno"
+                              placeholder="Enter GST No"
+                              [(ngModel)]="gstno"
+                              name="gstno"
+                            />
+                          </div>
+                          <!-- address -->
+                          <div class="mb-3">
+                            <label
+                              for="exampleInputPassword1"
+                              class="form-label"
+                              >Address:</label
+                            >
+                            <div class="mb-3">
+                              <input
+                                maxlength="25"
+                                type="text"
+                                class="form-control"
+                                id="aline1"
+                                placeholder="Address Line 1"
+                                [(ngModel)]="aline1"
+                                name="aline1"
+                              />
+                            </div>
+                            <div class="mb-3">
+                              <input
+                                maxlength="25"
+                                type="text"
+                                class="form-control"
+                                id="aline2"
+                                placeholder="Address Line 2"
+                                [(ngModel)]="aline2"
+                                name="aline2"
+                              />
+                            </div>
+                            <div class="mb-3">
+                              <input
+                                maxlength="15"
+                                type="text"
+                                class="form-control"
+                                id="city"
+                                placeholder="City"
+                                [(ngModel)]="city"
+                                name="city"
+                              />
+                            </div>
+
+                            <div class="mb-3">
+                              <input
+                                maxlength="6"
+                                type="text"
+                                class="form-control"
+                                id="pincode"
+                                placeholder="Pincode"
+                                [(ngModel)]="pincode"
+                                name="pincode"
+                              />
+                            </div>
+                            <div class="mb-3">
+                              <input
+                                maxlength="15"
+                                type="text"
+                                class="form-control"
+                                id="state"
+                                placeholder="State"
+                                [(ngModel)]="state"
+                                name="state"
+                              />
+                            </div>
+                          </div>
+                          <!-- type -->
+                          <div class="mb-3">
+                            <label
+                              for="exampleInputPassword1"
+                              class="form-label"
+                              >type:</label
+                            >
+                            <div class="mb-3">
+                              <select
+                                class="form-select form-select-sm form-control"
+                                aria-label="select party type"
+                                [value]="type"
+                                [(ngModel)]="type"
+                              >
+                                <option value="1" selected>Sales</option>
+                                <option value="2">Purchase</option>
+                                <option value="3">Others</option>
+                              </select>
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          (click)="addItems(itemData.length + 1)"
+                          data-dismiss="modal"
+                        >
+                          Save changes
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
               <!-- Modal End -->
+              <hr />
+              <!-- table -->
+              <div class="row row-cols-4">
+                <div *ngFor="let item of itemData" class="col">
+                  <div class="card border-success m-2" style="width: 18rem">
+                    <div class="card-body text-success">
+                      <h5 class="card-title">{{ item.pname }}</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">
+                        GST No: {{ item.gstno }}
+                      </h6>
+                      <p class="card-text">
+                        Address:
+                        {{ item.aline1 }}, {{ item.aline2 }}, {{ item.city }}-
+                        {{ item.pincode }},
+                        {{ item.state }}
+                      </p>
+                      <button
+                        type="button"
+                        class="btn btn-success mr-2"
+                        data-toggle="modal"
+                        data-target="#exampleModal"
+                        (click)="editItems(item)"
+                      >
+                        edit
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        (click)="deleteItems(item.id)"
+                      >
+                        delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

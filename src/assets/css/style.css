@@ -1955,7 +1955,7 @@ button:focus {
   Card
 ===================*/
 .card {
-  border: none;
+  /* border: none; */
   margin-bottom: 30px;
   background: #222437;
 }
