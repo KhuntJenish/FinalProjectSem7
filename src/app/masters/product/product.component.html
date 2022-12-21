@@ -2,52 +2,260 @@
 <!-- Start right Content here -->
 <!-- ============================================================== -->
 <div class="content-page">
-    <!-- Start content -->
-    <div class="content">
-      <div class="container-fluid">
-        <div class="page-title-box">
-          <div class="row align-items-center">
-            <div class="col-sm-6">
-              <h2 class="page-title">Add a Sales</h2>
-            </div>
-            <div class="col-sm-6">
-              <ol class="breadcrumb float-right">
-                <li class="breadcrumb-item"><a href="#">EMBROIDERY</a></li>
-                <li class="breadcrumb-item active">Sales</li>
-              </ol>
-            </div>
+  <!-- Start content -->
+  <div class="content">
+    <div class="container-fluid">
+      <div class="page-title-box">
+        <div class="row align-items-center">
+          <div class="col-sm-6">
+            <h2 class="page-title">Add a Sales</h2>
           </div>
-          <!-- end row -->
-        </div>
-        <!-- end page-title -->
-  
-        <!-- START ROW -->
-        <div class="row">
-          <div class="col-xl-12">
-            <div class="card m-b-30">
-              <div class="card-body">
-                
-  
-                <h1>Product</h1>
-              </div>
-            </div>
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-right">
+              <li class="breadcrumb-item"><a href="#">EMBROIDERY</a></li>
+              <li class="breadcrumb-item active">Sales</li>
+            </ol>
           </div>
         </div>
-  
-        <!-- END ROW -->
+        <!-- end row -->
       </div>
-      <!-- container-fluid -->
+      <!-- end page-title -->
+
+      <!-- START ROW -->
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="card m-b-30">
+            <div class="card-body">
+              <div class="row">
+                <h1 class="col-10">Product Master</h1>
+                <!-- party add button -->
+                <button
+                  type="button"
+                  class="btn btn-primary float-right col-1"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                  
+                >
+                  Add Product
+                </button>
+              </div>
+
+              <!-- Modal -->
+              <div
+                class="modal fade"
+                id="exampleModal"
+                tabindex="-1"
+                aria-labelledby="exampleModalLabel"
+                aria-hidden="true"
+              >
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="exampleModalLabel">
+                        Account Info
+                      </h5>
+
+                      <button
+                        type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        <!-- <span aria-hidden="true">&times;</span> -->
+                      </button>
+                    </div>
+
+                    <div>
+                      <div class="modal-body">
+                        <form>
+                          <!-- party name -->
+                          <div class="mb-3">
+                            <label class="form-label">Product Name:</label>
+                            <input
+                              maxlength="35"
+                              type="text"
+                              class="form-control"
+                              id="pname"
+                              name="pname"
+                              placeholder="Enter product"
+                              [(ngModel)]="pname"
+                            />
+                          </div>
+                          <!-- type -->
+                          <div class="mb-3">
+                            <label class="form-label">type:</label>
+                            <div class="mb-3">
+                              <select
+                                class="form-select form-select-sm form-control"
+                                aria-label="select type"
+                                #types 
+                                
+                                (change)="onSelected(types.value)"
+                              >
+                                <option default value="Saree">Saree</option>
+                                <option value="Allover">Allover</option>
+                                <option value="Others">Others</option>
+                              </select>
+                            </div>
+                          </div>
+                          <!-- GST -->
+                          <div class="mb-3">
+                            <label
+                              for="exampleInputPassword1"
+                              class="form-label"
+                              >GST: (cgst-sgst-igst) </label
+                            >
+                            <div class="mb-3">
+                              <input
+                                maxlength="25"
+                                type="text"
+                                class="form-control"
+                                id="aline1"
+                                placeholder="cgst"
+                                [(ngModel)]="cgst"
+                                name="cgst"
+                              />
+                            </div>
+                            <div class="mb-3">
+                              <input
+                                maxlength="25"
+                                type="text"
+                                class="form-control"
+                                id="aline2"
+                                placeholder="sgst"
+                                [(ngModel)]="sgst"
+                                name="sgst"
+                              />
+                            </div>
+                            <div class="mb-3">
+                              <input
+                                maxlength="15"
+                                type="text"
+                                class="form-control"
+                                id="city"
+                                placeholder="igst"
+                                [(ngModel)]="igst"
+                                name="igst"
+                              />
+                            </div>
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-secondary"
+                          data-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                        <button
+                          type="button"
+                          class="btn btn-primary"
+                          data-dismiss="modal"
+                          (click)="addItems(itemData.length + 1)"
+                        >
+                          Save changes
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- Modal End -->
+              <hr />
+
+              <!-- table -->
+              <table class="table table-bordered border-warning">
+                <thead >
+                  <tr>
+                    <th class="text-success" scope="col">Name</th>
+                    <th class="text-success" scope="col">Type</th>
+                    <th class="text-success" scope="col">CGST</th>
+                    <th class="text-success" scope="col">SGST</th>
+                    <th class="text-success" scope="col">IGST</th>
+                    <th class="text-success" scope="col">Fucntion</th>
+      
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of itemData">
+                    
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.type }}</td>
+                    <td>{{ item.cgst }}</td>
+                    <td>{{ item.sgst }}</td>
+                    <td>{{ item.igst }}</td>
+                    <td> <button
+                      type="button"
+                      class="btn btn-success mr-2"
+                      data-toggle="modal"
+                      data-target="#exampleModal"
+                      (click)="editItems(item)"
+                    >
+                      edit
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      (click)="deleteItems(item.pdId)"
+                    >
+                      delete
+                    </button></td>
+                    
+                  </tr>
+                </tbody>
+              </table>
+              <!-- <div class="row row-cols-4">
+                <div *ngFor="let item of itemData" class="col">
+                  <div class="card border-success m-2" style="width: 18rem">
+                    <div class="card-body text-success">
+                      <h5 class="card-title">{{ item.pname }}</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">
+                        Type: {{ item.type }}
+                      </h6>
+                      <p class="card-text">
+                        GST No:
+                        {{ item.cgst }}, {{ item.sgst }}, {{ item.igst }}
+                      </p>
+                      <button
+                        type="button"
+                        class="btn btn-success mr-2"
+                        data-toggle="modal"
+                        data-target="#exampleModal"
+                        (click)="editItems(item)"
+                      >
+                        edit
+                      </button>
+                      <button
+                        type="button"
+                        class="btn btn-danger"
+                        (click)="deleteItems(item.id)"
+                      >
+                        delete
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- END ROW -->
     </div>
-    <!-- content -->
-  
-    <footer class="footer">
-      ©2021 Jassa
-      <span class="d-none d-sm-inline-block">
-        - Love <i class="mdi mdi-heart text-danger"></i> by Therichpost.com</span
-      >.
-    </footer>
+    <!-- container-fluid -->
   </div>
-  <!-- ============================================================== -->
-  <!-- End Right content here -->
-  <!-- ============================================================== -->
-  
+  <!-- content -->
+
+  <footer class="footer">
+    ©2021 Jassa
+    <span class="d-none d-sm-inline-block">
+      - Love <i class="mdi mdi-heart text-danger"></i> by Therichpost.com</span
+    >.
+  </footer>
+</div>
+<!-- ============================================================== -->
+<!-- End Right content here -->
+<!-- ============================================================== -->

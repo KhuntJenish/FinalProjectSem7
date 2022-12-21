@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
+import { NetworkApiService } from 'app/network-api.service';
+
+
 @Component({
   selector: 'app-sales',
   templateUrl: './sales.component.html',
   styleUrls: ['./sales.component.css'],
 })
-export class SalesComponent {
+export class SalesComponent implements OnInit{
+  
   date: any | undefined;
 
   number: number = 1;
@@ -25,14 +29,22 @@ export class SalesComponent {
   igst: number = 0;
   totalAmount: number = 0;
 
-  itemData: any[] = [];
-
+  gstNo:string='';
+  itemData:any[]=[];
+  productData:any[]=[];
+  partyItemData:any[]=[];
+  partyData: any[] = [];
+  selectedParty:number = 0;
+  selectedProduct:number=0;
   jenish: any[] = ['Kishan', 'Jenish'];
-  constructor(public datepipe: DatePipe) {
+  constructor(public datepipe: DatePipe,private _apiService:NetworkApiService) {
     this.currentFunction();
     // console.log(this.date);
   }
-
+ngOnInit(){
+  this.getPartyData();
+  this.getProductData();
+}
   currentFunction() {
     this.date = new Date();
     let latest_date = this.datepipe.transform(this.date, 'yyyy-MM-dd');
@@ -97,7 +109,7 @@ export class SalesComponent {
 
   //row item amount set
   amountchnage() {
-    this.amount = this.qty * this.rate;
+    this.amount = this.work * this.rate;
     // console.log('amountChange');
     // console.log(this.amount);
   }
@@ -115,5 +127,34 @@ export class SalesComponent {
     this.grossAmount = this.totalRawAmount - this.discount;
     // console.log('grossAmountChange');
     // console.log(this.grossAmount);
+  }
+
+  getPartyData() {
+    this._apiService.getParty().subscribe((data: any) => {
+      const res = JSON.parse(JSON.stringify(data));
+      this.partyItemData = res;
+      this.partyItemData = this.partyItemData.filter(item=> item['type']==="Sales");
+      console.log(this.partyItemData);
+      
+    });
+  }
+
+  getProductData() {
+    this._apiService.getConfig().subscribe((data: any) => {
+      const res = JSON.parse(JSON.stringify(data));
+      this.productData = res;
+      console.log(this.productData);
+    });
+  }
+
+  onPartyChange(){
+    console.log(this.selectedProduct)
+    if (!+this.selectedParty) {
+      this.gstNo='';
+      return;
+    }
+    const party:any = this.partyItemData.filter(item=> item['paId']== this.selectedParty);
+    this.gstNo = party[0]!.gstno;
+    console.log(party[0]);
   }
 }

@@ -12,6 +12,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { TestDirective } from './_directive/test.directive';
 import { PartyAccountComponent } from './masters/party-account/party-account.component';
 import { ProductComponent } from './masters/product/product.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { ProductComponent } from './masters/product/product.component';
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     DatePipe,

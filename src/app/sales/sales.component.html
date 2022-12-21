@@ -27,7 +27,6 @@
           <div class="card m-b-30">
             <div class="card-body">
               <!-- pauchase form -->
-              <form>
                 <!-- ROW_1 -->
                 <div class="row mb-3">
                   <!-- party_name -->
@@ -37,11 +36,13 @@
                     <select
                       class="form-select form-select-sm form-control"
                       aria-label=".form-select-sm example"
+                      (change)="onPartyChange()"
+                      [(ngModel)]="selectedParty"
                     >
-                      <option selected>Open this select menu</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
+                      <option selected value="0">Open this select menu</option>
+                      <ng-container *ngFor="let party of partyItemData" >
+                        <option [value]="party.paId">{{party.pName}}</option>
+                      </ng-container>
                     </select>
                   </div>
                   <!-- bill_no -->
@@ -67,6 +68,7 @@
                       class="form-control"
                       id="exampleInputEmail1"
                       aria-describedby="emailHelp"
+                      [(ngModel)]="gstNo"
                     />
                   </div>
                   <!-- date -->
@@ -100,14 +102,16 @@
                   <!-- description -->
                   <div class="col-3">
                     <label for="title" class="form-lable">description:</label>
-                    <input
-                      maxlength="50"
-                      type="text"
-                      class="form-control"
-                      id="description"
-                      name="description"
-                      [(ngModel)]="description"
-                    />
+                    <select
+                      class="form-select form-select-sm form-control"
+                      aria-label=".form-select-sm example"
+                      [(ngModel)]="selectedProduct"
+                    >
+                      <option selected value="0">Open this select product menu</option>
+                      <ng-container *ngFor="let product of productData" >
+                        <option [value]="product.pdId">{{product.name}}</option>
+                      </ng-container>
+                    </select>
                   </div>
                   <!-- Design no. -->
                   <div class="col-2">
@@ -208,7 +212,6 @@
                     />
                   </div>
                 </div>
-              </form>
               <!-- ROW_5 -->
               <table class="table table-bordered">
                 <thead>
@@ -326,6 +329,29 @@
                   />
                 </div>
               </div>
+              <!-- ROW_8 -->
+              <div class="row mb-3">
+                  <!-- add item button -->
+                  <div class="col-6">
+                    <input
+                      type="submit"
+                      value="Submit"
+                      class="btn btn-primary btn-lg btn-block"
+                      (click)="addItems()"
+                    />
+                  </div>
+                  <!-- add item button -->
+                  <div class="col-6">
+                    <input
+                      type="submit"
+                      value="Print"
+                      class="btn btn-primary btn-lg btn-block"
+                      (click)="addItems()"
+                    />
+                  </div>
+              </div>
+
+
             </div>
           </div>
         </div>
